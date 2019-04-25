@@ -1,9 +1,10 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from "@react-native-community/async-storage";
 
-export default (key) => ({
+export default key => ({
     load() {
-        return AsyncStorage.getItem(key)
-            .then((jsonState) => JSON.parse(jsonState) || {});
+        return AsyncStorage.getItem(key).then(
+            jsonState => JSON.parse(jsonState) || {}
+        );
     },
 
     save(state) {
